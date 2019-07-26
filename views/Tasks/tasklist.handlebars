@@ -1,0 +1,10 @@
+{{#each allTask}}
+ <div> {{this.title}} </div>
+ <div> {{this.description}} </div>
+
+ <a href="/task/edit/{{this._id}}"> Edit </a> &nbsp;&nbsp;
+
+ <a href="/task/delete/{{thus._id}}">Delete </a>
+
+ <br><br><br>
+{{/each}}

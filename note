@@ -1,0 +1,17 @@
+https://www.youtube.com/watch?v=qj2oDkvc4dQ
+https://docs.mongodb.com/compass/master/install/
+1. crate a project folder in Desktop or anywhere
+2. npm init
+3. install 'npm install express'
+4. install 'npm install express-handlebars'
+5. create folder and files (https://www.npmjs.com/package/express-handlebars) 
+    ├── app.js
+    └── views
+        ├── home.handlebars
+        └── layouts
+            └── main.handlebars
+
+        2 directories, 3 files
+
+6. install 'mongodb' & 'mongodb compass'
+7. connect mondodb and the project
