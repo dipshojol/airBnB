@@ -12,6 +12,14 @@ const taskRoute = require("./routes/Task");
 const app = express();
 
 
+
+const methodOverride = require('method-override')
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+
+
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 

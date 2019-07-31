@@ -1,7 +1,7 @@
 const express= require("express");
 const taskSchema = require("../models/Task");
 const mongoose = require("mongoose");
-const router= express.Router();
+const router = express.Router();
 
     //This creates a model in our application called user. A model is a representation of a collection
   const Task = mongoose.model('Tasks', taskSchema);
@@ -89,6 +89,66 @@ router.get("/tasks",(req,res)=>
 
         })
    })
+});
+
+
+//This navigates the user to the Task Edit form with populated data
+router.get("/edit/:id",(req,res)=>
+{ 
+
+   Task.findOne({ _id:req.params.id})
+   .then((task)=>
+   {
+        res.render("Tasks/editForm",{
+          task:task
+
+        })
+   })
+});
+
+router.put("/edit/:id",(req,res)=>
+{ 
+    Task.findOne({ _id: req.params.id })
+        .then(task => {
+            task.title = req.body.title;
+            task.description = req.body.description;
+
+            task.save()
+                .then(task => {
+                res.redirect("/task/tasks")
+            })
+    })
+
+});
+
+
+
+//This navigates the user to the Task Edit form with populated data
+// router.get("/delete/:id",(req,res)=>
+// { 
+
+//    Task.findOne({ _id:req.params.id})
+//    .then((task)=>
+//    {
+//         res.render("Tasks/deleteTask",{
+//           task:task
+
+//         })
+//    })
+// });
+
+
+router.delete("/delete/:id",(req,res)=>
+{ 
+    Task.findOne({ _id: req.params.id })
+        .then(task => {
+
+            task.delete()
+                .then(task => {
+                res.redirect("/task/tasks")
+            })
+    })
+
 });
 
 module.exports=router;

@@ -1,0 +1,14 @@
+
+<form method="POST" action="/task/edit/{{task._id}}?_method=PUT">
+
+  <label> Title </label>
+  <input type="text" id="title" name="title" value="{{task.title}}"> <br><br>
+
+
+  <label> Description </label>
+   <textarea id="description" name="description">{{task.description}}</textarea> <br><br>
+
+
+  <input type="submit" value="Add Task">
+
+</form>
